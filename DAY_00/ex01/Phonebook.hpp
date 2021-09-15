@@ -2,6 +2,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <iomanip> 
 # include "Contact.hpp"
 
 class	Phonebook
@@ -9,9 +10,13 @@ class	Phonebook
 public:
 	Phonebook(void);
 	~Phonebook(void);
+	
+	void add_contact(void);
+	void search_contact(void);
 
 private :
-	Contact phonebook[8];
+	Contact	contacts[8];
+	int		nbr_contact;
 };
 
 #endif

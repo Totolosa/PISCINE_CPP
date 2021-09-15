@@ -9,17 +9,17 @@ public:
 	Contact(void);
 	~Contact(void);
 
-	// std::string get_firstname(void) const;
-	// std::string get_lastname(void) const;
-	// std::string get_nickname(void) const;
-	// std::string get_phonenumber(void) const;
-	// std::string get_darkestsecret(void) const;
+	std::string get_firstname(void) const;
+	std::string get_lastname(void) const;
+	std::string get_nickname(void) const;
+	std::string get_phonenumber(void) const;
+	std::string get_darkestsecret(void) const;
 
-	// void set_firstname(void);
-	// void set_lastname(void);
-	// void set_nickname(void);
-	// void set_phonenumber(void);
-	// void set_darkestsecret(void);
+	void set_firstname(void);
+	void set_lastname(void);
+	void set_nickname(void);
+	void set_phonenumber(void);
+	void set_darkestsecret(void);
 
 private :
 	std::string _first_name;
