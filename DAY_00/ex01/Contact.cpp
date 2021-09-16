@@ -6,14 +6,27 @@
 
 Contact::Contact(void)
 {
-	// std::cout << "Contact Constructor Called" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void) 
 {
-	// std::cout << "Contact Destructor Called" << std::endl;
 	return ;
+}
+
+/*
+**********          OPERATOR SURCHARGE          **********
+*/
+
+Contact &	Contact::operator=(Contact const & rhs)
+{
+	this->_first_name = rhs.get_firstname();
+	this->_last_name = rhs.get_lastname();
+	this->_nickname = rhs.get_nickname();
+	this->_phone_number = rhs.get_phonenumber();
+	this->_darkest_secret = rhs.get_darkestsecret();
+
+	return (*this);
 }
 
 /*

@@ -13,10 +13,11 @@ public:
 	
 	void add_contact(void);
 	void search_contact(void);
-
+	
 private :
 	Contact	contacts[8];
 	int		nbr_contact;
+	void display_info(int i, Contact contact) const;
 };
 
 #endif

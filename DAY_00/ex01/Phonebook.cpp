@@ -2,19 +2,17 @@
 
 Phonebook::Phonebook(void) : nbr_contact(0)
 {
-	std::cout << "Phonebook Constructor Called" << std::endl;
 	return ;
 }
 
 Phonebook::~Phonebook(void) 
 {
-	std::cout << "Phonebook Destructor Called" << std::endl;
 	return ;
 }
 
 void Phonebook::add_contact(void)
 {
-	if (nbr_contact < 7)
+	if (nbr_contact < 8)
 	{
 		contacts[nbr_contact].set_firstname();
 		contacts[nbr_contact].set_lastname();
@@ -37,47 +35,25 @@ void Phonebook::add_contact(void)
 	return ;
 }
 
-static void display_firstname(Contact contact)
+void Phonebook::display_info(int i, Contact contact) const
 {
-	std::string first_name;
+	std::string info;
 
-	first_name = contact.get_firstname();
-	if (first_name.size() > 9)
+	if (i == 1)
+		info = contact.get_firstname();
+	else if (i == 2)
+		info = contact.get_lastname();
+	else if (i == 3)
+		info = contact.get_nickname();
+	if (info.size() > 9)
 	{
-		first_name.resize(9);
-		std::cout << first_name << ".|";
+		info.resize(9);
+		std::cout << info << ".|";
 	}
 	else
-		std::cout << std::setw(10) << std::left << first_name << "|";
-}
-
-static void display_lastname(Contact contact)
-{
-	std::string last_name;
-
-	last_name = contact.get_lastname();
-	if (last_name.size() > 9)
-	{
-		last_name.resize(9);
-		std::cout << last_name << ".|";
-	}
-	else
-		std::cout << std::setw(10) << std::left << last_name << "|";
-}
-
-static void display_nickname(Contact contact)
-{
-	std::string nick_name;
-
-	nick_name = contact.get_nickname();
-	if (nick_name.size() > 9)
-	{
-		nick_name.resize(9);
-		std::cout << nick_name << ".|";
-	}
-	else
-		std::cout << std::setw(10) << std::left << nick_name << "|";
-	std::cout << std::endl;
+		std::cout << std::setw(10) << std::left << info << "|";
+	if (i == 3)
+		std::cout << std::endl;
 }
 
 static void display_details(Contact contact)
@@ -93,23 +69,28 @@ void Phonebook::search_contact(void)
 {
 	int index = -1;
 	
+	if (nbr_contact == 0)
+	{
+		std::cout << "No registred contact in phonebook!" << std::endl;
+		return ;
+	}
 	std::cout << "_____________________________________________" << std::endl;
 	std::cout << "|  index   |first name|last name | nickname |" << std::endl;
 	std::cout << "⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻" << std::endl;
 	for (int i = 0; i < nbr_contact; i++)
 	{
-		std::cout << "|" << std::setw(10) << std::left << i << "|";
-		display_firstname(contacts[i]);
-		display_lastname(contacts[i]);
-		display_nickname(contacts[i]);
+		std::cout << "|" << std::setw(10) << std::left << i + 1 << "|";
+		display_info(1, contacts[i]);
+		display_info(2, contacts[i]);
+		display_info(3, contacts[i]);
 	}
 	std::cout << "⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻⎻" << std::endl;
 	
 	std::cout << "Which contact index do you want to see the information from? ";
-	while (index < 0 || index >= nbr_contact)
+	while (index < 1 || index > nbr_contact)
 	{
 		std::cin >> index;
-		if (std::cin.fail() || std::cin.eof() || index < 0 || index >= nbr_contact)
+		if (std::cin.fail() || std::cin.eof() || index < 1 || index > nbr_contact)
 		{
 			std::cout << "Please put a valid index : ";
 			std::cin.clear();
@@ -117,7 +98,7 @@ void Phonebook::search_contact(void)
 			index = -1;
 		}
 	}
-	display_details(contacts[index]);
+	display_details(contacts[index - 1]);
 	std::cin.ignore(10000,'\n');
 	return ;
 }

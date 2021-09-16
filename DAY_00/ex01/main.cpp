@@ -16,10 +16,7 @@ int main()
 		else if (command == "ADD")
 			phonebook.add_contact();
 		else if (command == "SEARCH")
-		// {
 			phonebook.search_contact();
-		// 	std::cout << "fin search" << std::endl;
-		// }
 	}
 	return 0;
 }

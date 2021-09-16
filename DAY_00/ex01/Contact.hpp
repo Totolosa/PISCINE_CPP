@@ -21,6 +21,8 @@ public:
 	void set_phonenumber(void);
 	void set_darkestsecret(void);
 
+	Contact &	operator=(Contact const & rhs);
+
 private :
 	std::string _first_name;
 	std::string _last_name;
