@@ -1,4 +1,5 @@
 .vscode
+expected_by_42*
 
 # Prerequisites
 *.d
