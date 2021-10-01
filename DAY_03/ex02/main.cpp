@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main ()
 {
@@ -9,18 +10,18 @@ int main ()
 	a.beRepaired(10);
 	a.get_info();
 
-	ScavTrap b("Michel");
+	FragTrap b("Michel");
 	b.attack("son geniteur qui lui a donne ce nom");
 	b.takeDamage(20);
 	b.beRepaired(20);
-	b.guardGate();
+	b.highFivesGuys();
 	b.get_info();
 
-	ScavTrap c = b;
+	FragTrap c = b;
 	c.attack("son geniteur qui lui a donne ce nom");
 	c.takeDamage(30);
 	c.beRepaired(30);
-	c.guardGate();
+	c.highFivesGuys();
 	c.get_info();
 
 	return 0;
