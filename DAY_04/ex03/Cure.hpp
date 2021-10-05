@@ -6,13 +6,10 @@
 
 class Cure : public AMateria
 {
-	protected:
-		std::string	type;
 	public:
 		Cure();
-		Cure(std::string const & type);
 		Cure(Cure const & copy);
-		~Cure( void );
+		virtual ~Cure( void );
 		
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const;

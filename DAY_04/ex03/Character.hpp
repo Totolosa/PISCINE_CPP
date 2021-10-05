@@ -21,7 +21,9 @@ class Character : public ICharacter
 		Character &	operator=( Character const & rhs);
 
 	private :
+		std::string	name;
 		AMateria	*stuff[4];
+		int			nb_mat;
 };
 
 #endif

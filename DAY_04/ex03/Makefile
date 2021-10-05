@@ -21,10 +21,8 @@ INCLUDE			= AMateria.hpp \
 SRCS			= AMateria.cpp \
 					Cure.cpp \
 					Ice.cpp \
-					ICharacter.cpp \
 					Character.cpp \
-					IMateriaSource.cpp \
-					MateriaSource.cpp
+					MateriaSource.cpp \
 					main.cpp
 OBJS			= ${SRCS:%.cpp=$(DIR_OBJS)/%.o}
 DIR_OBJS		= objs

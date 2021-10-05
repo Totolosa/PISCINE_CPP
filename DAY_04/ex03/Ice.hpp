@@ -6,13 +6,10 @@
 
 class Ice : public AMateria
 {
-	protected:
-		std::string	type;
 	public:
 		Ice();
-		Ice(std::string const & type);
 		Ice(Ice const & copy);
-		~Ice( void );
+		virtual ~Ice( void );
 		
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const;
