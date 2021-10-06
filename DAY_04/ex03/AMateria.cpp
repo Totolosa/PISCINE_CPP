@@ -1,7 +1,7 @@
 #include "AMateria.hpp"
 #include "Character.hpp"
 
-AMateria::AMateria(void) : type("Default") {}
+AMateria::AMateria(void) {}
 
 AMateria::AMateria(std::string const & typeName) : type(typeName) {}
 
@@ -20,6 +20,6 @@ void AMateria::use(ICharacter& target) {
 }
 
 AMateria&	AMateria::operator=(AMateria const& rhs){
-	this->type = rhs.getType();
+	(void)rhs;
 	return *this;
 }

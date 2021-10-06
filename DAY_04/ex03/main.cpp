@@ -34,6 +34,7 @@ int main()
 	delete newCure;
 
 	ICharacter* bob = new Character("bob");
+	Character test = *(static_cast<Character*>(bob));
 	me->use(0, *bob);
 	me->use(1, *bob);
 	me->use(2, *bob);
@@ -42,6 +43,12 @@ int main()
 	Character b;
 	Character c(b);
 	std::cout << c.getName() << std::endl;
+
+	// Ice *i = new Ice();
+	// Cure *cul = new Cure();
+	// *static_cast<AMateria *>(cul) = *i;
+	// std::cout << cul->getType() << std::endl;
+
 
 	delete bob;
 	delete me;
