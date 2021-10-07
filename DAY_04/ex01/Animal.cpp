@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal ( void ) : type("")
+Animal::Animal ( void ) : type("Default")
 {
 	std::cout << "Animal Default Construtor called" << std::endl;
 }

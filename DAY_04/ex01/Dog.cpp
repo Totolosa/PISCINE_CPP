@@ -1,14 +1,12 @@
-// #include "Brain.hpp"
 #include "Dog.hpp"
 
-Dog::Dog ( void ) : Animal()
+Dog::Dog ( void ) : Animal("Dog")
 {
 	std::cout << "Dog Default Construtor called" << std::endl;
-	type = "Dog";
 	brain = new Brain();
 }
 
-Dog::Dog ( Dog const & copy ) : Animal()
+Dog::Dog ( Dog const & copy ) : Animal(copy)
 {
 	std::cout << "Dog Copy Construtor called" << std::endl;
 	*this = copy;
@@ -25,13 +23,18 @@ void Dog::makeSound() const
 	std::cout << "Wouf wouf je suis un chien" << std::endl;
 }
 
-std::string	Dog::getType()
-{
-	return (type);
+std::string const &	Dog::getIdea(int idx) const {
+	return (brain->ideas[idx]);
+}
+
+void Dog::setIdea(std::string newIdea, int idx) {
+	brain->ideas[idx] = newIdea;
 }
 
 Dog &	Dog::operator=( Dog const & rhs)
 {
-	this->type = rhs.type;
+	type = rhs.getType();
+	brain = new Brain;
+	*brain = *(rhs.brain);
 	return (*this);
 }

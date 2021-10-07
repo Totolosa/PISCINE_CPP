@@ -6,19 +6,19 @@
 
 class Animal
 {
-public :
-	Animal( void );
-	Animal( std::string name );
-	Animal( Animal const & );
-	virtual ~Animal( void );
+	public :
+		Animal( void );
+		Animal( std::string name );
+		Animal( Animal const & );
+		virtual ~Animal( void );
 
-	virtual void	makeSound() const = 0;
-	std::string		getType() const;
+		virtual void	makeSound() const = 0;
+		std::string		getType() const;
 
-	Animal & operator=( Animal const & rhs);
+		Animal & operator=( Animal const & rhs);
 
-protected :
-	std::string	type;
+	protected :
+		std::string	type;
 };
 
 std::ostream &	operator<<( std::ostream & lhs, Animal const & rhs);
