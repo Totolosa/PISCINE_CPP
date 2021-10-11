@@ -29,10 +29,22 @@ int const & Form::getGradeExec() const {
 	return _gradeExec;
 }
 
+void Form::setSigned(bool state) {
+	_signed = state;
+}
+
 void Form::beSigned(Bureaucrat const & bur) {
 	if (bur.getGrade() > getGradeSign())
 		throw Form::GradeTooLowException();
 	_signed = 1;
+}
+
+bool Form::checkExec(Bureaucrat const & executor) const {
+	if (getSignedBool() == false)
+		throw Form::FormNotSigned();
+	else if (executor.getGrade() > getGradeExec())
+		throw Bureaucrat::GradeTooLowException();
+	return true;
 }
 
 Form&	Form::operator=(Form const& rhs) {

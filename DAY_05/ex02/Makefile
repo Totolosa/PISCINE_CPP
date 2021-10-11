@@ -12,9 +12,15 @@ SUR     = \033[7m
 
 NAME			= bureaucrat
 INCLUDE			= Bureaucrat.hpp \
-					Form.hpp
+					Form.hpp \
+					ShrubberyCreationForm.hpp \
+					RobotomyRequestForm.hpp \
+					PresidentialPardonForm.hpp
 SRCS			= Bureaucrat.cpp \
 					Form.cpp \
+					ShrubberyCreationForm.cpp \
+					RobotomyRequestForm.cpp \
+					PresidentialPardonForm.cpp \
 					main.cpp
 OBJS			= ${SRCS:%.cpp=$(DIR_OBJS)/%.o}
 DIR_OBJS		= objs
@@ -40,7 +46,7 @@ clean:
 				${RM} $(OBJS)
 
 fclean:			clean
-				${RM} $(NAME) $(DIR_OBJS) ./*.replace
+				${RM} $(NAME) $(DIR_OBJS) ./*.replace formulaire_shrubbery
 				echo "${RED}XXXX CLEAN XNXX${END}"
 
 re:				fclean all

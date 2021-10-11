@@ -2,6 +2,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 int main(){
@@ -10,7 +11,7 @@ int main(){
 		Bureaucrat b("Regis", 150);
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
-		ShrubberyCreationForm c("le jardinier");
+		ShrubberyCreationForm c("formulaire");
 		std::cout << c << std::endl;
 		a.executeForm(c);
 		b.executeForm(c);
@@ -36,6 +37,21 @@ int main(){
 		PresidentialPardonForm f("l'epee d'ophile");
 		a.signForm(f);
 		a.executeForm(f);
+		std::cout << std::endl;
+
+		Intern g;
+		Form *test1, *test2, *test3;
+		try {
+			test1 = g.makeForm("ShrubberyForm", "nobody");
+			test2 = g.makeForm("RobotomiseForm", "nobody");
+			test3 = g.makeForm("DoesNotExist", "nobody");
+		}
+		catch (Intern::FormDontExist & e) {
+			std::cout << e.what() << std::endl;
+		}
+		delete test1;
+		delete test2;
+
 	}
 	catch (Bureaucrat::GradeTooHighException & e) {
 		std::cout << e.what() << std::endl;

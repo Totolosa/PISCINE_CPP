@@ -35,15 +35,17 @@ Form* Intern::createPresidentialPardonForm(std::string target) {
 }
 
 Form* Intern::makeForm(std::string const & name, std::string const & target) {
-	std::string choises[3] = {"Tree", "Robotomise", "Perdon"};
-	func_ptr ar_ptr[3] = {&createShrubberyCreationForm, &createRobotomyRequestForm, &createPresidentialPardonForm};
+	std::string choises[3] = {"ShrubberyForm", "RobotomiseForm", "PardonForm"};
+	func_ptr ar_ptr[3] = {&Intern::createShrubberyCreationForm, &Intern::createRobotomyRequestForm, &Intern::createPresidentialPardonForm};
 
 	int i;
 	for (i = 0; i < 3; i++) {
-		if (name == choises[i])
-			return (ar_ptr[i](target));
+		if (name == choises[i]) {
+			std::cout << "Intern creates " << choises[i] << std::endl;
+			return (this->*ar_ptr[i])(target);
+		}
 	}
-
+	throw FormDontExist(name);
 }
 
 // ---------------------------- OPERATION OVERLOAD -----------------------------

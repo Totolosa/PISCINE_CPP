@@ -15,12 +15,14 @@ INCLUDE			= Bureaucrat.hpp \
 					Form.hpp \
 					ShrubberyCreationForm.hpp \
 					RobotomyRequestForm.hpp \
-					PresidentialPardonForm.hpp
+					PresidentialPardonForm.hpp \
+					Intern.hpp
 SRCS			= Bureaucrat.cpp \
 					Form.cpp \
 					ShrubberyCreationForm.cpp \
 					RobotomyRequestForm.cpp \
 					PresidentialPardonForm.cpp \
+					Intern.cpp \
 					main.cpp
 OBJS			= ${SRCS:%.cpp=$(DIR_OBJS)/%.o}
 DIR_OBJS		= objs

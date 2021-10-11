@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+
 class Form;
 
 class Bureaucrat {
@@ -16,6 +17,7 @@ class Bureaucrat {
 		void				incGrade();
 		void				decGrade();
 		void				signForm(Form & formu);
+		void				executeForm(Form const & form);
 
 		Bureaucrat& operator=(Bureaucrat const& rhs);
 		std::string const	_name;

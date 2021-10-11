@@ -7,12 +7,32 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const& name) : Form(nam
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const& src) : Form(src) {
-	// *this = src;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+	Form::checkExec(executor);
+	std::ofstream outfile((getName() + "_shrubbery"));
+	outfile << "           .     .  .      +     .      .          ." << std::endl
+	<< "     .       .      .     #       .           ." << std::endl
+	<< "        .      .         ###            .      .      ." << std::endl
+	<< "      .      .   \"#:. .:##\"##:. .:#\"  .      ." << std::endl
+	<< "          .      . \"####\"###\"####\" . " << std::endl
+	<< "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       ." << std::endl
+	<< "  .             \"#########\"#########\"        .        ." << std::endl
+	<< "        .    \"#:.  \"####\"###\"####\"  .:#\"   .       ." << std::endl
+	<< "     .     .  \"#######\"\"##\"##\"\"#######\"                  ." << std::endl
+	<< "                .\"##\"#####\"#####\"##\"           .      ." << std::endl
+	<< "    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     ." << std::endl
+	<< "      .     \"#######\"##\"#####\"##\"#######\"      .     ." << std::endl
+	<< "    .    .     \"#####\"\"#######\"\"#####\"    .      ." << std::endl
+	<< "            .     \"      000      \"    .     ." << std::endl
+	<< "       .         .   .   000     .        .       ." << std::endl
+	<< ".. .. ..................O000O........................ ...... ..." << std::endl;
+}
+
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(ShrubberyCreationForm const& rhs) {
-	_signed = rhs.getSignedBool();
+	Form::setSigned(rhs.getSignedBool());
 	return *this;
 }

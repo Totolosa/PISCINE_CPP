@@ -14,7 +14,10 @@ class Form {
 		bool const &		getSignedBool() const;
 		int const &			getGradeSign() const;
 		int const &			getGradeExec() const;
+		void				setSigned(bool state);
 		void				beSigned(Bureaucrat const & bur);
+		virtual void		execute(Bureaucrat const & executor) const = 0;
+		bool				checkExec(Bureaucrat const & executor) const;
 
 		Form& operator=(Form const& rhs);
 
@@ -28,6 +31,12 @@ class Form {
 			public :
 				virtual const char* what() const throw () {
 					return ("Form : Grade too low , min = 150");
+				}
+		};
+		class FormNotSigned : public std::exception {
+			public :
+				virtual const char* what() const throw () {
+					return ("Form not signed, imposible to execute");
 				}
 		};
 

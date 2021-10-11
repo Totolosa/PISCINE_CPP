@@ -2,6 +2,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "Form.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public Form {
 	public:
@@ -9,6 +10,8 @@ class ShrubberyCreationForm : public Form {
 		ShrubberyCreationForm(std::string const& name);
 		ShrubberyCreationForm(ShrubberyCreationForm const& src);
 		~ShrubberyCreationForm();
+
+		virtual void	execute(Bureaucrat const & executor) const;
 
 		ShrubberyCreationForm& operator=(ShrubberyCreationForm const& rhs);
 	private:
