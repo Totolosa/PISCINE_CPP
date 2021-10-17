@@ -10,7 +10,7 @@ BOLD    = \033[1m
 UNDER   = \033[4m
 SUR     = \033[7m
 
-NAME			= convert
+NAME			= serialize
 INCLUDE			=
 SRCS			= main.cpp
 OBJS			= ${SRCS:%.cpp=$(DIR_OBJS)/%.o}
