@@ -15,7 +15,6 @@ class C : public Base {};
 
 Base * generate(void) {
 	srand (time(NULL));
-	usleep(100);
 	int res = rand() % 3 + 1;
 
 	if (res == 1) {

@@ -117,10 +117,6 @@ void print_int(double value) {
 }
 
 void print_float(double value, int prec) {
-	if (value > std::numeric_limits<float>::max() || value < std::numeric_limits<float>::min()) {
-		std::cout << "error : FLOAT out of range" << std::endl;
-		exit(1);
-	}
 	float floating =  static_cast<float>(value);
 	if (floating < 32 || floating > 126)
 		std::cout << "char: Non displayable" << std::endl;
@@ -132,10 +128,7 @@ void print_float(double value, int prec) {
 }
 
 void print_double(double value, int prec) {
-	if (value > std::numeric_limits<double>::max() || value < std::numeric_limits<double>::min()) {
-		std::cout << "error : DOUBLE out of range" << std::endl;
-		exit(1);
-	}
+
 	if (value < 32 || value > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
