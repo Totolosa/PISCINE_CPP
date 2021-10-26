@@ -12,8 +12,7 @@ SUR     = \033[7m
 
 NAME			= template
 INCLUDE			= Array.hpp
-SRCS			= Array.cpp \
-					main.cpp
+SRCS			= main.cpp
 OBJS			= ${SRCS:%.cpp=$(DIR_OBJS)/%.o}
 DIR_OBJS		= objs
 COMPIL			= clang++
