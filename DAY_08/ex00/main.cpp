@@ -16,8 +16,8 @@ int main() {
 	vec_int.push_back(9);
 	int to_find = 6;
 	try {
-		easyfind<std::list<int>>(list_int, to_find);
-		easyfind<std::vector<int>>(vec_int, to_find);
+		easyfind< std::list<int> >(list_int, to_find);
+		easyfind< std::vector<int> >(vec_int, to_find);
 		std::cout << to_find << " found" << std::endl;
 	}
 	catch (NotFind & e) {
