@@ -27,7 +27,7 @@ void	Span::addRange(int begin, int end) {
 }
 
 int		Span::shortestSpan() const {
-	int res = INT32_MAX;
+	int res = INT_MAX;
 	int tmp;
 
 	if (vec.size() == 0 || vec.size() == 1)

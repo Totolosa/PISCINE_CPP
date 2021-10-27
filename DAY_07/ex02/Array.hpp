@@ -6,7 +6,7 @@
 template <typename T>
 class Array {
 	public:
-		Array() : _size(0), tab(nullptr) {}
+		Array() : tab(nullptr), _size(0) {}
 		Array(unsigned int n) : tab(new T[n]), _size(n) {}
 		Array(Array const& src) : tab(nullptr), _size(0) { *this = src; }
 		~Array() { delete [] tab; }
@@ -15,7 +15,7 @@ class Array {
 		
 		Array & operator=(Array const& rhs) {
 			if (tab != nullptr)
-				delete tab;
+				delete [] tab;
 			tab = new T[rhs.size()];
 			for (unsigned int i = 0; i < rhs._size; i++)
 				tab[i] = rhs.tab[i];
